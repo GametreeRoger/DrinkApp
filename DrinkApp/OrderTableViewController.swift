@@ -225,7 +225,7 @@ class OrderTableViewController: UITableViewController {
         if let flavors = order.fields.flavor {
             cell.flavorLabel.text = flavors.joined(separator: ", ")
         } else {
-            cell.flavorLabel.text = ""
+            cell.flavorLabel.text = " "
         }
         let size = DrinkSize.large.rawValue == order.fields.size ? DrinkSize.large : DrinkSize.bottle
         cell.quantityLabel.text = size.getOrderName(quantity: order.fields.quantity)

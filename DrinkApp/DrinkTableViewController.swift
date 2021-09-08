@@ -24,10 +24,6 @@ class DrinkTableViewController: UITableViewController {
                 self.records = records
                 self.records.forEach { self.groupSet.insert($0.fields.group) }
                 self.groupArray = self.groupSet.sorted()
-//                print("group set count: \(self.groupSet.count), group array count: \(self.groupArray.count)")
-//                for group in self.groupArray {
-//                    print("group:\(group), count:\(self.records.filter { $0.fields.group == group }.count)")
-//                }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -60,7 +56,6 @@ class DrinkTableViewController: UITableViewController {
         let label = UILabel(frame: CGRect(x: 10, y: 0, width: view.bounds.width - 10, height: 50))
         label.text = groupArray[section]
         label.textColor = UIColor.white
-        print("section:\(section), group:\(groupArray[section])")
         label.font = UIFont.boldSystemFont(ofSize: 30)
         
         view.addSubview(label)

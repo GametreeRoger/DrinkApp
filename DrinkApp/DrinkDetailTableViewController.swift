@@ -320,7 +320,7 @@ class DrinkDetailTableViewController: UITableViewController {
             return
         }
         
-        let order = OrderField(name: name, constellation: constellation, className: className, drinkName: field.name, temperture: tempertuar.rawValue, ice: tempertuar == .cold ? ice.rawValue : nil, sugar: sugar.rawValue, flavor: selectedFlavors(), size: size.rawValue, quantity: drinkQuantity, sum: priceSum())
+        let order = OrderField(name: name, constellation: constellation, className: className, drinkName: field.name, temperture: tempertuar.rawValue, ice: tempertuar == .cold ? ice.rawValue : nil, sugar: isDrinkConstraints(constraint: .sugarFixed) ? nil : sugar.rawValue, flavor: selectedFlavors(), size: size.rawValue, quantity: drinkQuantity, sum: priceSum())
         let orderRecords = OrderRecords(records: [OrderRecord(fields: order, id: orderID.isEmpty ? nil : orderID)])
         
         if orderID.isEmpty {
