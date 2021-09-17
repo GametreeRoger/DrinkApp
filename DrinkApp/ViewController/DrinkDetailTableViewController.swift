@@ -15,48 +15,20 @@ class DrinkDetailTableViewController: UITableViewController {
     
     @IBOutlet weak var drinkImageView: UIImageView!
 
-    @IBOutlet weak var coldButton: UIButton! {
-        didSet {
-            coldButton.configurationUpdateHandler = updateTempertureButton
-        }
-    }
-    @IBOutlet weak var hotButton: UIButton! {
-        didSet {
-            hotButton.configurationUpdateHandler = updateTempertureButton
-        }
-    }
+    @IBOutlet weak var coldButton: UIButton!
+    @IBOutlet weak var hotButton: UIButton!
     @IBOutlet weak var smoothieLabel: UILabel!
     
     @IBOutlet weak var crushedSmoothieLabel: UILabel!
     
-    @IBOutlet var iceButtons: [UIButton]! {
-        didSet {
-            iceButtons.forEach{ $0.configurationUpdateHandler = updateRadioButton }
-        }
-    }
+    @IBOutlet var iceButtons: [UIButton]!
     
-    @IBOutlet var sugarButtons: [UIButton]! {
-        didSet {
-            sugarButtons.forEach{ $0.configurationUpdateHandler = updateRadioButton }
-        }
-    }
+    @IBOutlet var sugarButtons: [UIButton]!
     
-    @IBOutlet var flavorButtons: [UIButton]! {
-        didSet {
-            flavorButtons.forEach { $0.configurationUpdateHandler = updateCheckBoxButton }
-        }
-    }
+    @IBOutlet var flavorButtons: [UIButton]!
     
-    @IBOutlet weak var largeDrinkButton: UIButton! {
-        didSet {
-            largeDrinkButton.configurationUpdateHandler = updateRadioButton
-        }
-    }
-    @IBOutlet weak var bottleDrinkButton: UIButton! {
-        didSet {
-            bottleDrinkButton.configurationUpdateHandler = updateRadioButton
-        }
-    }
+    @IBOutlet weak var largeDrinkButton: UIButton!
+    @IBOutlet weak var bottleDrinkButton: UIButton!
     
     @IBOutlet weak var drinkPriceLabel: UILabel!
     
@@ -65,6 +37,8 @@ class DrinkDetailTableViewController: UITableViewController {
     @IBOutlet weak var classTextField: UITextField!
     
     @IBOutlet weak var constellationTextField: UITextField!
+    
+    @IBOutlet weak var sendOrderButton: UIButton!
     
     @IBOutlet var starPickerView: UIPickerView!
     
@@ -86,8 +60,41 @@ class DrinkDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         Flavor.allCases.forEach { flavorList[$0] = false }
-        
+        initButton()
         initDrinkMenu()
+    }
+    
+    func initButton() {
+        coldButton.backgroundColor = .clear
+        coldButton.layer.cornerRadius = 5
+        coldButton.layer.borderWidth = 1
+        coldButton.layer.borderColor = UIColor(named: "MainColor")?.cgColor
+        hotButton.backgroundColor = .clear
+        hotButton.layer.cornerRadius = 5
+        hotButton.layer.borderWidth = 1
+        hotButton.layer.borderColor = UIColor(named: "MainColor")?.cgColor
+        coldButton.isSelected = true
+        updateTempertureButton(button: coldButton)
+        iceButtons.forEach { icebtn in
+            icebtn.setTitle("", for: .normal)
+            if icebtn.tag == 0 {
+                icebtn.isSelected = true
+                updateRadioButton(button: icebtn)
+            }
+        }
+        
+        sugarButtons.forEach { sugarbtn in
+            sugarbtn.setTitle("", for: .normal)
+            if sugarbtn.tag == 0 {
+                sugarbtn.isSelected = true
+                updateRadioButton(button: sugarbtn)
+            }
+        }
+        updateRadioButton(button: sugarButtons[0])
+        largeDrinkButton.isSelected = true
+        updateRadioButton(button: largeDrinkButton)
+        
+        sendOrderButton.layer.cornerRadius = 5
     }
     
     func initDrinkMenu() {
@@ -135,17 +142,19 @@ class DrinkDetailTableViewController: UITableViewController {
             setDefaultSugar()
         }
         
-        if var config = largeDrinkButton.configuration {
-            config.title = "\(DrinkSize.large.rawValue) \(field.largePrice) 元"
-            largeDrinkButton.configuration = config
-        }
+//        if var config = largeDrinkButton.configuration {
+//            config.title = "\(DrinkSize.large.rawValue) \(field.largePrice) 元"
+//            largeDrinkButton.configuration = config
+//        }
+        largeDrinkButton.setTitle("\(DrinkSize.large.rawValue) \(field.largePrice) 元", for: .normal)
         largeDrinkButton.isSelected = true
         
         if let bottlePrice = field.bottlePrice {
-            if var config = bottleDrinkButton.configuration {
-                config.title = "\(DrinkSize.bottle.rawValue) \(bottlePrice) 元"
-                bottleDrinkButton.configuration = config
-            }
+//            if var config = bottleDrinkButton.configuration {
+//                config.title = "\(DrinkSize.bottle.rawValue) \(bottlePrice) 元"
+//                bottleDrinkButton.configuration = config
+//            }
+            bottleDrinkButton.setTitle("\(DrinkSize.bottle.rawValue) \(bottlePrice) 元", for: .normal)
         } else {
             bottleDrinkButton.isHidden = true
         }
@@ -232,27 +241,32 @@ class DrinkDetailTableViewController: UITableViewController {
     }
     
     func updateTempertureButton(button: UIButton) {
-        if var config = button.configuration {
-            var configBackground = config.background
-            configBackground.backgroundColor = UIColor(named: button.isSelected ? "MainColor" : "SecondColor")
-            config.background = configBackground
-            config.baseForegroundColor = UIColor(named: button.isSelected ? "SecondColor" : "MainColor")
-            button.configuration = config
-        }
+
+//        if var config = button.configuration {
+//            var configBackground = config.background
+//            configBackground.backgroundColor = UIColor(named: button.isSelected ? "MainColor" : "SecondColor")
+//            config.background = configBackground
+//            config.baseForegroundColor = UIColor(named: button.isSelected ? "SecondColor" : "MainColor")
+//            button.configuration = config
+//        }
+        button.backgroundColor = UIColor(named: button.isSelected ? "MainColor" : "SecondColor")
+        button.setTitleColor(UIColor(named: button.isSelected ? "SecondColor" : "MainColor"), for: .normal)
     }
     
     func updateRadioButton(button: UIButton) {
-        if var config = button.configuration {
-            config.image = UIImage(systemName: button.isSelected ? "circle.inset.filled" : "circle")
-            button.configuration = config
-        }
+//        if var config = button.configuration {
+//            config.image = UIImage(systemName: button.isSelected ? "circle.inset.filled" : "circle")
+//            button.configuration = config
+//        }
+        button.setImage(UIImage(systemName: button.isSelected ? "record.circle" : "circle"), for: .normal)
     }
     
     func updateCheckBoxButton(button: UIButton) {
-        if var config = button.configuration {
-            config.image = UIImage(systemName: button.isSelected ? "checkmark.square" : "square")
-            button.configuration = config
-        }
+//        if var config = button.configuration {
+//            config.image = UIImage(systemName: button.isSelected ? "checkmark.square" : "square")
+//            button.configuration = config
+//        }
+        button.setImage(UIImage(systemName: button.isSelected ? "checkmark.square" : "square"), for: .normal)
     }
     
     func showWarnningAlert(title: String, message: String) {
@@ -265,7 +279,8 @@ class DrinkDetailTableViewController: UITableViewController {
     @IBAction func selectTemperture(_ sender: UIButton) {
         coldButton.isSelected = sender == coldButton
         hotButton.isSelected = sender != coldButton
-        
+        updateTempertureButton(button: coldButton)
+        updateTempertureButton(button: hotButton)
         self.tempertuar = coldButton.isSelected ? .cold : .hot
         
         tableView.reloadData()
@@ -278,6 +293,7 @@ class DrinkDetailTableViewController: UITableViewController {
             } else {
                 button.isSelected = false
             }
+            updateRadioButton(button: button)
         }
         
         self.ice = DrinkIce.getDrinkIce(tag: sender.tag)
@@ -290,6 +306,7 @@ class DrinkDetailTableViewController: UITableViewController {
             } else {
                 button.isSelected = false
             }
+            updateRadioButton(button: button)
         }
         
         self.sugar = DrinkSugar.getDrinkSugar(tag: sender.tag)
@@ -298,8 +315,10 @@ class DrinkDetailTableViewController: UITableViewController {
     @IBAction func selectFlavor(_ sender: UIButton) {
         flavorButtons.forEach { button in
             if button == sender {
+                button.isSelected.toggle()
                 let key = Flavor.getFlavor(tag: sender.tag)
-                flavorList[key] = sender.isSelected
+                flavorList[key] = button.isSelected
+                updateCheckBoxButton(button: button)
             }
         }
         computePrice()
@@ -309,6 +328,8 @@ class DrinkDetailTableViewController: UITableViewController {
         largeDrinkButton.isSelected = sender == largeDrinkButton
         bottleDrinkButton.isSelected = sender == bottleDrinkButton
         self.size = largeDrinkButton.isSelected ? .large : .bottle
+        updateRadioButton(button: largeDrinkButton)
+        updateRadioButton(button: bottleDrinkButton)
         computePrice()
     }
     
@@ -377,6 +398,9 @@ class DrinkDetailTableViewController: UITableViewController {
         drinkQuantityLabel.text = String(format: "%.0f", arguments: [sender.value])
         drinkQuantity = Int(sender.value)
         computePrice()
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
     }
     
     

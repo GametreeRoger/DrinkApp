@@ -50,7 +50,7 @@ class NetworkController {
                response.statusCode == 200,
                resError == nil {
                 do {
-                    print("fetchOrders: \(content)")
+//                    print("fetchOrders: \(content)")
                     let decoder = JSONDecoder()
                     let orderRecordData = try decoder.decode(OrderRecords.self, from: data)
                     completion(.success(orderRecordData.records))

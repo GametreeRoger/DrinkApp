@@ -38,6 +38,47 @@ class DrinkTableViewController: UITableViewController {
         let filteredRecords = records.filter{ $0.fields.group == group }
         return filteredRecords[indexPath.row]
     }
+    
+    func randomRecord() -> IndexPath {
+        let filterRecords = records.filter { isThisSeasonDrink(record: $0) }
+        if let record = filterRecords.randomElement() {
+            var section = 0
+            for (i, name) in groupArray.enumerated() {
+                if name == record.fields.group {
+                    section = i
+                }
+            }
+            let groupRecords = records.filter{ $0.fields.group == record.fields.group }
+            var row = 0
+            for (i, gRecord) in groupRecords.enumerated() {
+                if gRecord.fields.name == record.fields.name {
+                    row = i
+                }
+            }
+            return IndexPath(row: row, section: section)
+        }
+        return IndexPath(row: 0, section: 0)
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        print(#function)
+        if motion == .motionShake {
+            print("shake!!")
+            let indexPath = randomRecord()
+            let record = getRecord(indexPath: indexPath)
+            let alertController = UIAlertController(title: "不知道要選什麼嗎？", message: "讓我幫你決定吧！\n就決定是你了 \(record.fields.name)！！", preferredStyle: .alert)
+            let alertOKAction = UIAlertAction(title: "OK", style: .default) { _ in
+                let cell = self.tableView(self.tableView, cellForRowAt: indexPath)
+                cell.setSelected(true, animated: true)
+                self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                self.performSegue(withIdentifier: "showDrinkDetail", sender: nil)
+            }
+            let alertNoAction = UIAlertAction(title: "NO", style: .default, handler: nil)
+            alertController.addAction(alertOKAction)
+            alertController.addAction(alertNoAction)
+            present(alertController, animated: true, completion: nil)
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -98,40 +139,50 @@ class DrinkTableViewController: UITableViewController {
         return cell
     }
     
+    func isThisSeasonDrink(record: Record) -> Bool {
+        guard let limited = record.fields.seasonLimited else {
+            return true
+        }
+        
+        var monthAy = Array<Int>()
+        let months = limited.split(separator: "-").map { Int($0) ?? 0 }
+        if months[0] > months[1] {
+            for i in months[0]...12 {
+                monthAy.append(i)
+            }
+            for i in 1...months[1] {
+                monthAy.append(i)
+            }
+        } else {
+            monthAy = Array(months[0]...months[1])
+        }
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let components = calendar.dateComponents([.month], from: Date())
+        if let nowMonth = components.month,
+           monthAy.contains(nowMonth) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             return false
         }
         let record = getRecord(indexPath: indexPath)
-        if let limited = record.fields.seasonLimited {
-            var monthAy = Array<Int>()
-            let months = limited.split(separator: "-").map { Int($0) ?? 0 }
-            if months[0] > months[1] {
-                for i in months[0]...12 {
-                    monthAy.append(i)
-                }
-                for i in 1...months[1] {
-                    monthAy.append(i)
-                }
-            } else {
-                monthAy = Array(months[0]...months[1])
-            }
-            
-            let calendar = Calendar(identifier: .gregorian)
-            let components = calendar.dateComponents([.month], from: Date())
-            if let nowMonth = components.month,
-               monthAy.contains(nowMonth) {
-                return true
-            } else {
-                let alertController = UIAlertController(title: "季節限定", message: "暫不提供", preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alertController.addAction(alertAction)
-                present(alertController, animated: true, completion: nil)
-                return false
-            }
-        }
+        let canSelect = isThisSeasonDrink(record: record)
         
-        return true
+        if canSelect {
+            return true
+        } else {
+            let alertController = UIAlertController(title: "季節限定", message: "暫不提供", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
+            return false
+        }
     }
 
     @IBSegueAction func showDetail(_ coder: NSCoder, sender: Any?) -> DrinkDetailTableViewController? {

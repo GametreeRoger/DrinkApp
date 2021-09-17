@@ -10,8 +10,8 @@ import UIKit
 class OrderTableViewController: UITableViewController {
 
     let ORDER_CELL_ID = "OrderCellID"
+    let NO_ORDER_CELL_ID = "NoOrderCellID"
     let MENU_SEGUE_ID = "showMenu"
-//    let constellation = ["牡羊座", "金牛座", "雙子座", "巨蟹座", "獅子座", "處女座", "天秤座", "天蠍座", "射手座", "魔羯座", "水瓶座", "雙魚座"]
     
     var orderRecords = [OrderRecord]()
     var groupSet = Set<String>()
@@ -20,6 +20,8 @@ class OrderTableViewController: UITableViewController {
     var deleteIndexPath = IndexPath()
     var updateIndexPath = IndexPath()
     var isUpdate = true
+    var loadingController: LoadingViewController?
+    var isNoOrder: Bool = true
     
     @IBOutlet var starPickerView: UIPickerView!
     
@@ -36,14 +38,33 @@ class OrderTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        if let loadingController = storyboard?.instantiateViewController(withIdentifier: "\(LoadingViewController.self)") as? LoadingViewController {
+            self.loadingController = loadingController
+        }
         updateOrder()
     }
     
+    func loading(enable: Bool) {
+        if let loadingController = loadingController {
+            if enable {
+                present(loadingController, animated: true, completion: nil)
+            } else {
+                loadingController.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     func updateOrder() {
+        loading(enable: true)
+        
         NetworkController.shared.fetchOrders { result in
+            DispatchQueue.main.async {
+                self.loading(enable: false)
+            }
             switch result {
             case .success(let orderRecords):
                 self.orderRecords = orderRecords
+                self.isNoOrder = orderRecords.isEmpty ? true : false
                 self.updateGroupArray()
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -92,20 +113,33 @@ class OrderTableViewController: UITableViewController {
                             print("Delete fail:\(error)")
                         }
                     }
-                    orderRecords.remove(at: index)
+                    
                     DispatchQueue.main.async {
-                        self.tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
+                        self.orderRecords.remove(at: index)
+                        
+                        if self.orderRecords.isEmpty {
+                            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                                self.isNoOrder = true
+                                print("No order reload.......")
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
+                            }
+                        }
+                        
+                        let(isFind, sectionIndex) = self.findEmptyGroup()
+                        if isFind {
+                            self.updateGroupArray()
+                            self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+                        } else {
+                            self.tableView.deleteRows(at: [indexPath], with: .fade)
+                            self.tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
+                        }
                     }
                     break
                 }
             }
             
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            let(isFind, sectionIndex) = findEmptyGroup()
-            if isFind {
-                updateGroupArray()
-                tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
-            }
         } else {
             showWarnningAlert(title: "Warnning", message: "星座錯誤")
         }
@@ -152,50 +186,120 @@ class OrderTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        groupArray.count
+        if isNoOrder {
+            return 1
+        } else {
+            return groupArray.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        orderRecords.filter { $0.fields.className == groupArray[section] }.count
+        if isNoOrder {
+            return 1
+        } else {
+            return orderRecords.filter { $0.fields.className == groupArray[section] }.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        50
+        if isNoOrder {
+            return 0
+        } else {
+            return 50
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        40
+        if isNoOrder {
+            return 0
+        } else {
+            return 40
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isNoOrder {
+            return 400
+        } else {
+            return tableView.estimatedRowHeight
+        }
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
-        
-        view.backgroundColor = UIColor.clear
-        let label = UILabel(frame: CGRect(x: 10, y: 0, width: view.bounds.width - 10, height: 50))
-        label.text = groupArray[section]
-        label.textColor = UIColor.white
-        label.font = UIFont.boldSystemFont(ofSize: 30)
-        view.addSubview(label)
-        
-        return view
+        if isNoOrder {
+            return nil
+        } else {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+            
+            view.backgroundColor = UIColor.clear
+            let label = UILabel(frame: CGRect(x: 10, y: 0, width: view.bounds.width - 10, height: 50))
+            label.text = groupArray[section]
+            label.textColor = UIColor.white
+            label.font = UIFont.boldSystemFont(ofSize: 30)
+            view.addSubview(label)
+            
+            return view
+        }
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
-        
-        view.backgroundColor = UIColor.clear
-        let label = UILabel(frame: CGRect(x: 10, y: 5, width: view.bounds.width - 50, height: 30))
-        
-        let group = groupArray[section]
-        let filtedRecords = orderRecords.filter { $0.fields.className == group }
-        let sum = filtedRecords.reduce(0) { $0 + $1.fields.sum }
-        label.text = "\(sum) 元"
-        label.textColor = UIColor.systemBrown
-        label.textAlignment = .right
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        view.addSubview(label)
-        
-        return view
+        if isNoOrder {
+            return nil
+        } else {
+            let footerView = UIView()
+            footerView.backgroundColor = .clear
+            let whiteCornerView = UIView()
+            whiteCornerView.backgroundColor = .systemBrown
+            whiteCornerView.layer.cornerRadius = 10
+            footerView.addSubview(whiteCornerView)
+            whiteCornerView.translatesAutoresizingMaskIntoConstraints = false
+            whiteCornerView.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 5).isActive = true
+            whiteCornerView.bottomAnchor.constraint(equalTo: footerView.bottomAnchor).isActive = true
+            whiteCornerView.leadingAnchor.constraint(equalTo: footerView.leadingAnchor).isActive = true
+            whiteCornerView.trailingAnchor.constraint(equalTo: footerView.trailingAnchor).isActive = true
+            let label = UILabel()
+            let group = groupArray[section]
+            let filtedRecords = orderRecords.filter { $0.fields.className == group }
+            let sum = filtedRecords.reduce(0) { $0 + $1.fields.sum }
+            label.text = "\(sum) 元"
+            label.textColor = .white
+            label.textAlignment = .right
+            label.font = UIFont.boldSystemFont(ofSize: 20)
+            whiteCornerView.addSubview(label)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.centerYAnchor.constraint(equalTo: whiteCornerView.centerYAnchor).isActive = true
+            label.trailingAnchor.constraint(equalTo: whiteCornerView.trailingAnchor, constant: -10).isActive = true
+            let listButton = UIButton()
+            listButton.addAction(UIAction(handler: { action in
+                if let orderlistController = self.storyboard?.instantiateViewController(withIdentifier: "\(OrderListTableViewController.self)") as? OrderListTableViewController,
+                   let nav = self.navigationController {
+                    orderlistController.orderRecords = filtedRecords
+                    nav.pushViewController(orderlistController, animated: true)
+                }
+            }), for: .primaryActionTriggered)
+            
+            listButton.setTitle("訂單", for: .normal)
+            listButton.setImage(UIImage(systemName: "list.bullet.rectangle"), for: .normal)
+            listButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+            listButton.setTitleColor(.white, for: .normal)
+            listButton.tintColor = .white
+//            if var config = listButton.configuration {
+//                config.title = "訂單"
+//                config.image = UIImage(systemName: "list.bullet.rectangle")
+//                config.imagePadding = 5.0
+//                config.baseForegroundColor = .white
+//                if var attTitle = config.attributedTitle {
+//                    attTitle.font = UIFont.boldSystemFont(ofSize: 15)
+//                    config.attributedTitle = attTitle
+//                }
+//                listButton.configuration = config
+//            }
+            whiteCornerView.addSubview(listButton)
+            listButton.translatesAutoresizingMaskIntoConstraints = false
+            listButton.centerYAnchor.constraint(equalTo: whiteCornerView.centerYAnchor).isActive = true
+            listButton.leadingAnchor.constraint(equalTo: whiteCornerView.leadingAnchor, constant: 10).isActive = true
+            return footerView
+        }
     }
     
     func getOrder(indexPath: IndexPath) -> OrderRecord {
@@ -205,6 +309,9 @@ class OrderTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isNoOrder {
+            return tableView.dequeueReusableCell(withIdentifier: NO_ORDER_CELL_ID, for: indexPath)
+        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ORDER_CELL_ID, for: indexPath) as? OrderTableViewCell else {
             return UITableViewCell()
         }

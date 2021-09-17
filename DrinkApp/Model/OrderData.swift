@@ -42,7 +42,7 @@ struct OrderField: Codable {
 
 extension OrderField: Equatable {
     static func ==(lhs: OrderField, rhs: OrderField) -> Bool {
-        return lhs.name == rhs.name && lhs.constellation == rhs.constellation && lhs.className == rhs.className && lhs.drinkName == rhs.drinkName && lhs.temperture == rhs.temperture && lhs.ice == rhs.ice && lhs.sugar == rhs.sugar && lhs.flavor == rhs.flavor && lhs.size == rhs.size && lhs.sum == rhs.sum
+        return lhs.drinkName == rhs.drinkName && lhs.temperture == rhs.temperture && lhs.ice == rhs.ice && lhs.sugar == rhs.sugar && lhs.flavor?.sorted() == rhs.flavor?.sorted() && lhs.size == rhs.size
     }
 }
 
@@ -113,9 +113,9 @@ enum DrinkSize: String {
     func getOrderName(quantity: Int) -> String {
         switch self {
         case .large:
-            return "大杯 * \(quantity)"
+            return "大杯 \(quantity) 杯"
         case .bottle:
-            return "瓶 * \(quantity)"
+            return "\(quantity) 瓶"
         }
     }
 }
