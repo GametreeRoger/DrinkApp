@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Store: Decodable {
     let name: String
@@ -15,4 +16,15 @@ struct Store: Decodable {
 
 protocol PhoneDelegate {
     func callPhoneNumber(phones: [String])
+}
+
+struct StoreLocation {
+    let store: Store
+    var location: CLLocation?
+    var distance: CLLocationDistance?
+    init(store: Store) {
+        self.store = store
+        self.location = nil
+        self.distance = nil
+    }
 }

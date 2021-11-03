@@ -2,6 +2,8 @@ Drink App (麻古茶坊)
 
 current version ２.0
 
+- V 3.0
+  1. 商店清單新增距離排序
 - V 2.0
   1. 下載資料時顯示 LoadingViewController
   2. TableView 沒有資料時顯示沒有資料的畫面

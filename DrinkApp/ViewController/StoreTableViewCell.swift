@@ -15,6 +15,8 @@ class StoreTableViewCell: UITableViewCell {
     
     @IBOutlet weak var phoneLabel: UILabel!
     
+    @IBOutlet weak var distanceLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

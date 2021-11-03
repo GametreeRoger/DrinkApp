@@ -27,6 +27,7 @@
 		D3A9F65226EF8CE700855EC7 /* OrderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9F65126EF8CE700855EC7 /* OrderListTableViewController.swift */; };
 		D3A9F65426EF914800855EC7 /* OrderListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9F65326EF914800855EC7 /* OrderListCellTableViewCell.swift */; };
 		D3A9F65626EFA1EB00855EC7 /* OrderListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9F65526EFA1EB00855EC7 /* OrderListData.swift */; };
+		D3CC98C627327AEF00386AE1 /* StoreTableViewController+LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CC98C527327AEF00386AE1 /* StoreTableViewController+LocationManagerDelegate.swift */; };
 		D3DC2D8326E3601E006012E8 /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC2D8226E3601E006012E8 /* OrderTableViewController.swift */; };
 		D3DC2D8526E365DF006012E8 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC2D8426E365DF006012E8 /* OrderTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		D3A9F65126EF8CE700855EC7 /* OrderListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableViewController.swift; sourceTree = "<group>"; };
 		D3A9F65326EF914800855EC7 /* OrderListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListCellTableViewCell.swift; sourceTree = "<group>"; };
 		D3A9F65526EFA1EB00855EC7 /* OrderListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListData.swift; sourceTree = "<group>"; };
+		D3CC98C527327AEF00386AE1 /* StoreTableViewController+LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreTableViewController+LocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		D3DC2D8226E3601E006012E8 /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		D3DC2D8426E365DF006012E8 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				D3A9F65326EF914800855EC7 /* OrderListCellTableViewCell.swift */,
 				D3A4394226F1D26B000B68C7 /* StoreTableViewController.swift */,
 				D3A4394426F1D8F2000B68C7 /* StoreTableViewCell.swift */,
+				D3CC98C527327AEF00386AE1 /* StoreTableViewController+LocationManagerDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				D391E1A626E3BF57009E7522 /* deleteOrder.swift in Sources */,
 				D3DC2D8526E365DF006012E8 /* OrderTableViewCell.swift in Sources */,
 				D3A9F65226EF8CE700855EC7 /* OrderListTableViewController.swift in Sources */,
+				D3CC98C627327AEF00386AE1 /* StoreTableViewController+LocationManagerDelegate.swift in Sources */,
 				D3A9F65626EFA1EB00855EC7 /* OrderListData.swift in Sources */,
 				D3310F7226DD0F3D00B8B1C0 /* DrinkTableViewController.swift in Sources */,
 				D3310F6026DD0E9100B8B1C0 /* SceneDelegate.swift in Sources */,

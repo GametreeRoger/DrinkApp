@@ -6,22 +6,29 @@
 //
 
 import UIKit
+import CoreLocation
 
 class StoreTableViewController: UITableViewController {
 
-    var stores = [Store]()
+    var stores = [StoreLocation]()
+    let locationManager = CLLocationManager()
     var phoneDelegate: PhoneDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestAuthorization()
         readStoreList()
+        getLocation()
     }
     
     func readStoreList() {
         if let url = Bundle.main.url(forResource: "Store", withExtension: "plist"),
            let data = try? Data(contentsOf: url) {
             do {
-                stores = try PropertyListDecoder().decode([Store].self, from: data)
+                let storesdata = try PropertyListDecoder().decode([Store].self, from: data)
+                for data in storesdata {
+                    stores.append(StoreLocation(store: data))
+                }
             } catch {
                 print("Parse Plist failed:\(error)")
             }
@@ -62,9 +69,13 @@ class StoreTableViewController: UITableViewController {
 
         let index = indexPath.row
         let store = stores[index]
-        cell.nameLabel.text = store.name
-        cell.addressLabel.text = store.address
-        cell.phoneLabel.text = store.phone.joined(separator: "/")
+        cell.nameLabel.text = store.store.name
+        cell.addressLabel.text = store.store.address
+        cell.phoneLabel.text = store.store.phone.joined(separator: "/")
+        cell.distanceLabel.isHidden = locationManager.authorizationStatus != .authorizedWhenInUse
+        if let meters = store.distance, locationManager.authorizationStatus == .authorizedWhenInUse {
+            cell.distanceLabel.text = String(format: "距離 %.0f 公尺", meters)
+        }
 
         return cell
     }
@@ -75,7 +86,7 @@ class StoreTableViewController: UITableViewController {
         if let phoneDelegate = phoneDelegate {
             let index = indexPath.row
             let store = stores[index]
-            phoneDelegate.callPhoneNumber(phones: store.phone)
+            phoneDelegate.callPhoneNumber(phones: store.store.phone)
         }
     }
 }

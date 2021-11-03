@@ -61,9 +61,7 @@ class DrinkTableViewController: UITableViewController {
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        print(#function)
         if motion == .motionShake {
-            print("shake!!")
             let indexPath = randomRecord()
             let record = getRecord(indexPath: indexPath)
             let alertController = UIAlertController(title: "不知道要選什麼嗎？", message: "讓我幫你決定吧！\n就決定是你了 \(record.fields.name)！！", preferredStyle: .alert)
