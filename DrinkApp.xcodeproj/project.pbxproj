@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3219963273C020100927A1F /* DrinkPictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3219961273C020100927A1F /* DrinkPictureTableViewCell.swift */; };
+		D3219964273C020100927A1F /* DrinkPictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3219962273C020100927A1F /* DrinkPictureTableViewCell.xib */; };
+		D3219967273C036600927A1F /* TempertureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3219965273C036600927A1F /* TempertureTableViewCell.swift */; };
+		D3219968273C036600927A1F /* TempertureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3219966273C036600927A1F /* TempertureTableViewCell.xib */; };
+		D321996B273C06DA00927A1F /* IceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3219969273C06DA00927A1F /* IceTableViewCell.swift */; };
+		D321996C273C06DA00927A1F /* IceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D321996A273C06DA00927A1F /* IceTableViewCell.xib */; };
+		D321996F273C0AED00927A1F /* SugarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D321996D273C0AED00927A1F /* SugarTableViewCell.swift */; };
+		D3219970273C0AED00927A1F /* SugarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D321996E273C0AED00927A1F /* SugarTableViewCell.xib */; };
+		D3219973273C0FF900927A1F /* FlavorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3219971273C0FF900927A1F /* FlavorTableViewCell.swift */; };
+		D3219974273C0FF900927A1F /* FlavorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3219972273C0FF900927A1F /* FlavorTableViewCell.xib */; };
+		D3219977273C161A00927A1F /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3219975273C161A00927A1F /* PriceTableViewCell.swift */; };
+		D3219978273C161A00927A1F /* PriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3219976273C161A00927A1F /* PriceTableViewCell.xib */; };
 		D3310F5E26DD0E9100B8B1C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3310F5D26DD0E9100B8B1C0 /* AppDelegate.swift */; };
 		D3310F6026DD0E9100B8B1C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3310F5F26DD0E9100B8B1C0 /* SceneDelegate.swift */; };
 		D3310F6526DD0E9100B8B1C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3310F6326DD0E9100B8B1C0 /* Main.storyboard */; };
@@ -16,6 +28,9 @@
 		D3310F7426DD111600B8B1C0 /* DrinkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3310F7326DD111600B8B1C0 /* DrinkData.swift */; };
 		D35C259926EE44C300A84C99 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C259826EE44C300A84C99 /* LoadingViewController.swift */; };
 		D36A6F3B26E117BA00FD865F /* OrderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A6F3A26E117BA00FD865F /* OrderData.swift */; };
+		D37C73A1273CF15100C9CD69 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C739F273CF15100C9CD69 /* AccountTableViewCell.swift */; };
+		D37C73A2273CF15100C9CD69 /* AccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37C73A0273CF15100C9CD69 /* AccountTableViewCell.xib */; };
+		D37C73A4273D112A00C9CD69 /* DrinkDetailXibTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C73A3273D112A00C9CD69 /* DrinkDetailXibTableViewController.swift */; };
 		D391E1A626E3BF57009E7522 /* deleteOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391E1A526E3BF56009E7522 /* deleteOrder.swift */; };
 		D393415726DE0F00005CDF7F /* DrinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D393415626DE0F00005CDF7F /* DrinkTableViewCell.swift */; };
 		D393415926DE21E0005CDF7F /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D393415826DE21E0005CDF7F /* NetworkController.swift */; };
@@ -33,6 +48,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3219961273C020100927A1F /* DrinkPictureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkPictureTableViewCell.swift; sourceTree = "<group>"; };
+		D3219962273C020100927A1F /* DrinkPictureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkPictureTableViewCell.xib; sourceTree = "<group>"; };
+		D3219965273C036600927A1F /* TempertureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempertureTableViewCell.swift; sourceTree = "<group>"; };
+		D3219966273C036600927A1F /* TempertureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TempertureTableViewCell.xib; sourceTree = "<group>"; };
+		D3219969273C06DA00927A1F /* IceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceTableViewCell.swift; sourceTree = "<group>"; };
+		D321996A273C06DA00927A1F /* IceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IceTableViewCell.xib; sourceTree = "<group>"; };
+		D321996D273C0AED00927A1F /* SugarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarTableViewCell.swift; sourceTree = "<group>"; };
+		D321996E273C0AED00927A1F /* SugarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SugarTableViewCell.xib; sourceTree = "<group>"; };
+		D3219971273C0FF900927A1F /* FlavorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorTableViewCell.swift; sourceTree = "<group>"; };
+		D3219972273C0FF900927A1F /* FlavorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlavorTableViewCell.xib; sourceTree = "<group>"; };
+		D3219975273C161A00927A1F /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
+		D3219976273C161A00927A1F /* PriceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceTableViewCell.xib; sourceTree = "<group>"; };
 		D3310F5A26DD0E9000B8B1C0 /* DrinkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3310F5D26DD0E9100B8B1C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3310F5F26DD0E9100B8B1C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +71,9 @@
 		D3310F7326DD111600B8B1C0 /* DrinkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkData.swift; sourceTree = "<group>"; };
 		D35C259826EE44C300A84C99 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		D36A6F3A26E117BA00FD865F /* OrderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderData.swift; sourceTree = "<group>"; };
+		D37C739F273CF15100C9CD69 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		D37C73A0273CF15100C9CD69 /* AccountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountTableViewCell.xib; sourceTree = "<group>"; };
+		D37C73A3273D112A00C9CD69 /* DrinkDetailXibTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailXibTableViewController.swift; sourceTree = "<group>"; };
 		D391E1A526E3BF56009E7522 /* deleteOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteOrder.swift; sourceTree = "<group>"; };
 		D393415626DE0F00005CDF7F /* DrinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewCell.swift; sourceTree = "<group>"; };
 		D393415826DE21E0005CDF7F /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
@@ -71,6 +101,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3219960273C01CB00927A1F /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				D3219961273C020100927A1F /* DrinkPictureTableViewCell.swift */,
+				D3219962273C020100927A1F /* DrinkPictureTableViewCell.xib */,
+				D3219965273C036600927A1F /* TempertureTableViewCell.swift */,
+				D3219966273C036600927A1F /* TempertureTableViewCell.xib */,
+				D3219969273C06DA00927A1F /* IceTableViewCell.swift */,
+				D321996A273C06DA00927A1F /* IceTableViewCell.xib */,
+				D321996D273C0AED00927A1F /* SugarTableViewCell.swift */,
+				D321996E273C0AED00927A1F /* SugarTableViewCell.xib */,
+				D3219971273C0FF900927A1F /* FlavorTableViewCell.swift */,
+				D3219972273C0FF900927A1F /* FlavorTableViewCell.xib */,
+				D3219975273C161A00927A1F /* PriceTableViewCell.swift */,
+				D3219976273C161A00927A1F /* PriceTableViewCell.xib */,
+				D37C739F273CF15100C9CD69 /* AccountTableViewCell.swift */,
+				D37C73A0273CF15100C9CD69 /* AccountTableViewCell.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
 		D323982026F03E71007B2746 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +148,7 @@
 				D3A4394226F1D26B000B68C7 /* StoreTableViewController.swift */,
 				D3A4394426F1D8F2000B68C7 /* StoreTableViewCell.swift */,
 				D3CC98C527327AEF00386AE1 /* StoreTableViewController+LocationManagerDelegate.swift */,
+				D37C73A3273D112A00C9CD69 /* DrinkDetailXibTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -120,6 +172,7 @@
 		D3310F5C26DD0E9000B8B1C0 /* DrinkApp */ = {
 			isa = PBXGroup;
 			children = (
+				D3219960273C01CB00927A1F /* Xib */,
 				D323982126F03E9A007B2746 /* ViewController */,
 				D323982026F03E71007B2746 /* Model */,
 				D3310F5D26DD0E9100B8B1C0 /* AppDelegate.swift */,
@@ -193,9 +246,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3310F6A26DD0E9200B8B1C0 /* LaunchScreen.storyboard in Resources */,
+				D3219964273C020100927A1F /* DrinkPictureTableViewCell.xib in Resources */,
+				D3219974273C0FF900927A1F /* FlavorTableViewCell.xib in Resources */,
 				D3310F6726DD0E9200B8B1C0 /* Assets.xcassets in Resources */,
+				D321996C273C06DA00927A1F /* IceTableViewCell.xib in Resources */,
+				D3219978273C161A00927A1F /* PriceTableViewCell.xib in Resources */,
+				D3219970273C0AED00927A1F /* SugarTableViewCell.xib in Resources */,
 				D3A4393F26F1CAB7000B68C7 /* Store.plist in Resources */,
+				D3219968273C036600927A1F /* TempertureTableViewCell.xib in Resources */,
 				D3310F6526DD0E9100B8B1C0 /* Main.storyboard in Resources */,
+				D37C73A2273CF15100C9CD69 /* AccountTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3219967273C036600927A1F /* TempertureTableViewCell.swift in Sources */,
 				D36A6F3B26E117BA00FD865F /* OrderData.swift in Sources */,
 				D3DC2D8326E3601E006012E8 /* OrderTableViewController.swift in Sources */,
 				D3310F7426DD111600B8B1C0 /* DrinkData.swift in Sources */,
@@ -213,12 +274,19 @@
 				D3A4394126F1D132000B68C7 /* Stroe.swift in Sources */,
 				D3A39FC826DF2E3300412D92 /* DrinkDetailTableViewController.swift in Sources */,
 				D3310F5E26DD0E9100B8B1C0 /* AppDelegate.swift in Sources */,
+				D37C73A4273D112A00C9CD69 /* DrinkDetailXibTableViewController.swift in Sources */,
+				D3219977273C161A00927A1F /* PriceTableViewCell.swift in Sources */,
 				D3A4394326F1D26B000B68C7 /* StoreTableViewController.swift in Sources */,
 				D393415926DE21E0005CDF7F /* NetworkController.swift in Sources */,
+				D3219963273C020100927A1F /* DrinkPictureTableViewCell.swift in Sources */,
 				D3A9F65426EF914800855EC7 /* OrderListCellTableViewCell.swift in Sources */,
+				D37C73A1273CF15100C9CD69 /* AccountTableViewCell.swift in Sources */,
 				D391E1A626E3BF57009E7522 /* deleteOrder.swift in Sources */,
 				D3DC2D8526E365DF006012E8 /* OrderTableViewCell.swift in Sources */,
 				D3A9F65226EF8CE700855EC7 /* OrderListTableViewController.swift in Sources */,
+				D321996F273C0AED00927A1F /* SugarTableViewCell.swift in Sources */,
+				D321996B273C06DA00927A1F /* IceTableViewCell.swift in Sources */,
+				D3219973273C0FF900927A1F /* FlavorTableViewCell.swift in Sources */,
 				D3CC98C627327AEF00386AE1 /* StoreTableViewController+LocationManagerDelegate.swift in Sources */,
 				D3A9F65626EFA1EB00855EC7 /* OrderListData.swift in Sources */,
 				D3310F7226DD0F3D00B8B1C0 /* DrinkTableViewController.swift in Sources */,
@@ -372,11 +440,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 685J25KN75;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DrinkApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "麻古茶坊";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "為了計算最短距離，請給我你的位置";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -388,7 +457,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.roger.DrinkApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -403,11 +472,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 685J25KN75;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DrinkApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "麻古茶坊";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "為了計算最短距離，請給我你的位置";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -419,7 +489,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.roger.DrinkApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

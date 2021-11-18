@@ -78,7 +78,7 @@
                                     <outlet property="MonthLimitedLabel" destination="bzd-4r-RMx" id="ri6-3m-Xuq"/>
                                     <outlet property="NameLabel" destination="bs5-lS-Yit" id="cVd-tq-Xld"/>
                                     <outlet property="TempertureLabel" destination="wim-4e-5V7" id="g9a-II-HvL"/>
-                                    <segue destination="2XA-CF-ex5" kind="show" identifier="showDrinkDetail" destinationCreationSelector="showDetail:sender:" id="UzH-p3-LP9"/>
+                                    <segue destination="DZV-Y7-oxT" kind="show" identifier="showDrinkDetail" destinationCreationSelector="showXibDetail:sender:" id="pOY-bq-nYQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -565,7 +565,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yN-B4-pIi">
-                                                                    <rect key="frame" x="39.333333333333336" y="0.0" width="56.333333333333321" height="22"/>
+                                                                    <rect key="frame" x="39.333333333333343" y="0.0" width="56.333333333333314" height="22"/>
                                                                     <color key="tintColor" name="MainColor"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" title="椰果">
@@ -600,7 +600,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m5B-Lw-Rpl">
-                                                                    <rect key="frame" x="38.333333333333357" y="0.0" width="222" height="81.666666666666671"/>
+                                                                    <rect key="frame" x="38.333333333333371" y="0.0" width="222" height="81.666666666666671"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0yw-c0-jXM">
                                                                             <rect key="frame" x="0.0" y="0.0" width="189" height="22"/>
@@ -706,7 +706,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ouU-2d-iJt">
-                                                            <rect key="frame" x="0.0" y="123.66666666666666" width="131.33333333333334" height="20.333333333333343"/>
+                                                            <rect key="frame" x="0.0" y="123.66666666666664" width="131.33333333333334" height="20.333333333333357"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="+15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ8-DQ-w6o">
                                                                     <rect key="frame" x="0.0" y="0.0" width="28" height="20.333333333333332"/>
@@ -1047,7 +1047,36 @@
                     </items>
                 </toolbar>
             </objects>
-            <point key="canvasLocation" x="4466.1538461538457" y="113.74407582938387"/>
+            <point key="canvasLocation" x="5458" y="-7"/>
+        </scene>
+        <!--訂單設定-->
+        <scene sceneID="Ahu-A0-fzS">
+            <objects>
+                <tableViewController storyboardIdentifier="DrinkDetailXibTableViewController" id="DZV-Y7-oxT" customClass="DrinkDetailXibTableViewController" customModule="DrinkApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="fgM-6u-HlW">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HJc-sF-0bn">
+                                <rect key="frame" x="20" y="31.666666030883789" width="350" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HJc-sF-0bn" id="PMf-xt-Vcb">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DZV-Y7-oxT" id="x8f-cw-RkD"/>
+                            <outlet property="delegate" destination="DZV-Y7-oxT" id="Oui-Bf-EDN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="訂單設定" id="nXF-Wv-RJl"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OCT-nZ-mfa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4463" y="100"/>
         </scene>
         <!--飲料訂單-->
         <scene sceneID="EpG-W1-zcu">

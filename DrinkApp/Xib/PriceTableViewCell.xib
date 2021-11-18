@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PriceTableViewCell" customModule="DrinkApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="5Gr-tI-Gad">
+                        <rect key="frame" x="0.0" y="5" width="320" height="130"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6WY-IK-9fQ">
+                                <rect key="frame" x="116" y="0.0" width="88" height="39.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzD-WV-B9d">
+                                        <rect key="frame" x="0.0" y="0.0" width="39" height="39.5"/>
+                                        <color key="tintColor" name="MainColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="大" image="circle" catalog="system">
+                                            <color key="titleColor" name="MainColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSize:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pxS-o2-Gcu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I71-Lk-1ym">
+                                        <rect key="frame" x="49" y="0.0" width="39" height="39.5"/>
+                                        <color key="tintColor" name="MainColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="瓶" image="circle" catalog="system">
+                                            <color key="titleColor" name="MainColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSize:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LkE-zd-iTi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="V2Q-Tb-Xvs">
+                                <rect key="frame" x="87.5" y="45.5" width="145.5" height="39"/>
+                                <subviews>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="XNb-cc-XfE">
+                                        <rect key="frame" x="0.0" y="3.5" width="94" height="32"/>
+                                        <connections>
+                                            <action selector="onQuantity:" destination="KGk-i7-Jjw" eventType="valueChanged" id="ozf-pO-UK9"/>
+                                        </connections>
+                                    </stepper>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjE-IL-sj2">
+                                        <rect key="frame" x="104" y="9.5" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="MainColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-vq-RB2">
+                                <rect key="frame" x="113.5" y="90.5" width="93.5" height="39.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總額：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYe-dc-r18">
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="39.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="MainColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGU-UC-ydR">
+                                        <rect key="frame" x="52" y="0.0" width="41.5" height="39.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="MainColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="130" id="jG0-Ll-fxs"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5Gr-tI-Gad" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="O2T-iC-8qb"/>
+                    <constraint firstAttribute="trailing" secondItem="5Gr-tI-Gad" secondAttribute="trailing" id="SGj-u3-HOy"/>
+                    <constraint firstAttribute="bottom" secondItem="5Gr-tI-Gad" secondAttribute="bottom" constant="5" id="YgT-5c-uFN"/>
+                    <constraint firstItem="5Gr-tI-Gad" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="qSA-hV-OSU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="SecondColor"/>
+            <connections>
+                <outlet property="bottleDrinkButton" destination="I71-Lk-1ym" id="LJz-or-cmK"/>
+                <outlet property="drinkPriceLabel" destination="YGU-UC-ydR" id="Vu5-9i-T8v"/>
+                <outlet property="drinkQuantityLabel" destination="bjE-IL-sj2" id="Gsn-Os-cRP"/>
+                <outlet property="largeDrinkButton" destination="GzD-WV-B9d" id="qRb-xJ-1Ym"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="105"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="circle" catalog="system" width="128" height="121"/>
+        <namedColor name="MainColor">
+            <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

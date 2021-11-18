@@ -183,17 +183,29 @@ class DrinkTableViewController: UITableViewController {
         }
     }
 
-    @IBSegueAction func showDetail(_ coder: NSCoder, sender: Any?) -> DrinkDetailTableViewController? {
+//    @IBSegueAction func showDetail(_ coder: NSCoder, sender: Any?) -> DrinkDetailTableViewController? {
+//        guard let indexPath = tableView.indexPathForSelectedRow else {
+//            return nil
+//        }
+//        
+//        let record = getRecord(indexPath: indexPath)
+//        if orderID.isEmpty {
+//            return DrinkDetailTableViewController(coder: coder, field: record.fields)
+//        } else {
+//            return DrinkDetailTableViewController(coder: coder, field: record.fields, orderID: orderID)
+//        }
+//    }
+    
+    @IBSegueAction func showXibDetail(_ coder: NSCoder, sender: Any?) -> DrinkDetailXibTableViewController? {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             return nil
         }
         
         let record = getRecord(indexPath: indexPath)
         if orderID.isEmpty {
-            return DrinkDetailTableViewController(coder: coder, field: record.fields)
+            return DrinkDetailXibTableViewController(coder: coder, field: record.fields)
         } else {
-            return DrinkDetailTableViewController(coder: coder, field: record.fields, orderID: orderID)
+            return DrinkDetailXibTableViewController(coder: coder, field: record.fields, orderID: orderID)
         }
     }
-    
 }

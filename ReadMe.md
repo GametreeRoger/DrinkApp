@@ -1,9 +1,10 @@
 Drink App (麻古茶坊)
 
-current version ２.0
+current version 3.0
 
 - V 3.0
   1. 商店清單新增距離排序
+  2. 訂單設定頁面每個 cell 改用 Xib
 - V 2.0
   1. 下載資料時顯示 LoadingViewController
   2. TableView 沒有資料時顯示沒有資料的畫面

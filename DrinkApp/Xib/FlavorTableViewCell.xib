@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="FlavorTableViewCell" customModule="DrinkApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZjO-a9-jgW">
+                        <rect key="frame" x="20" y="15" width="280" height="170"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nPD-ax-j5Y">
+                                <rect key="frame" x="0.0" y="0.0" width="181.5" height="22.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+5  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6C-Rf-gWw">
+                                        <rect key="frame" x="0.0" y="0.0" width="29.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="MainColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9B-po-HSN">
+                                        <rect key="frame" x="39.5" y="0.0" width="56.5" height="22.5"/>
+                                        <color key="tintColor" name="MainColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="椰果" image="square" catalog="system">
+                                            <color key="titleColor" name="MainColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fnw-BN-I8r"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6R-DP-CQi">
+                                        <rect key="frame" x="106" y="0.0" width="75.5" height="22.5"/>
+                                        <color key="tintColor" name="MainColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="仙草凍" image="square" catalog="system">
+                                            <color key="titleColor" name="MainColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1ZF-bq-UQO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vFM-E8-9nK">
+                                <rect key="frame" x="0.0" y="27.5" width="261" height="87.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44q-27-xeb">
+                                        <rect key="frame" x="0.0" y="0.0" width="28.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="MainColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3pg-0s-0OB">
+                                        <rect key="frame" x="38.5" y="0.0" width="222.5" height="86"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HSi-9k-ptA">
+                                                <rect key="frame" x="0.0" y="0.0" width="189.5" height="22"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98o-q8-avT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="56.5" height="22"/>
+                                                        <color key="tintColor" name="MainColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="波霸" image="square" catalog="system">
+                                                            <color key="titleColor" name="MainColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MpU-2Q-w9a"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N25-Du-55s">
+                                                        <rect key="frame" x="66.5" y="0.0" width="56.5" height="22"/>
+                                                        <color key="tintColor" name="MainColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="珍珠" image="square" catalog="system">
+                                                            <color key="titleColor" name="MainColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1fN-6h-shh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIH-gL-6Bk">
+                                                        <rect key="frame" x="133" y="0.0" width="56.5" height="22"/>
+                                                        <color key="tintColor" name="MainColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="混珠" image="square" catalog="system">
+                                                            <color key="titleColor" name="MainColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NCI-9L-TKg"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EAS-hw-bju">
+                                                <rect key="frame" x="0.0" y="32" width="222.5" height="22"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-dv-YOC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70.5" height="22"/>
+                                                        <color key="tintColor" name="MainColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="雙Q果" image="square" catalog="system">
+                                                            <color key="titleColor" name="MainColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rHN-ys-Yee"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SG-WY-4FG">
+                                                        <rect key="frame" x="80.5" y="0.0" width="56.5" height="22"/>
+                                                        <color key="tintColor" name="MainColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="蜂蜜" image="square" catalog="system">
+                                                            <color key="titleColor" name="MainColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2H1-7n-8xW"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCe-pk-VDP">
+                                                        <rect key="frame" x="147" y="0.0" width="75.5" height="22"/>
+                                                        <color key="tintColor" name="MainColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="養樂多" image="square" catalog="system">
+                                                            <color key="titleColor" name="MainColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="CUJ-Hu-V1i"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lyj-BC-T9O">
+                                                <rect key="frame" x="0.0" y="64" width="75.5" height="22"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ws-rQ-Ydk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75.5" height="22"/>
+                                                        <color key="tintColor" name="MainColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="綠茶凍" image="square" catalog="system">
+                                                            <color key="titleColor" name="MainColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="K6d-s4-fd5"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="T0c-0X-RR2">
+                                <rect key="frame" x="0.0" y="120" width="131.5" height="22.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgi-BQ-to2">
+                                        <rect key="frame" x="0.0" y="0.0" width="28" height="22.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="MainColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTH-jp-eaM">
+                                        <rect key="frame" x="38" y="0.0" width="93.5" height="22.5"/>
+                                        <color key="tintColor" name="MainColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="葡萄波波" image="square" catalog="system">
+                                            <color key="titleColor" name="MainColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="m2W-bd-Uyc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rQt-8R-4Ax">
+                                <rect key="frame" x="0.0" y="147.5" width="249" height="22.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmL-ta-6mX">
+                                        <rect key="frame" x="0.0" y="0.0" width="30.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="MainColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jd-Tw-CTO">
+                                        <rect key="frame" x="40.5" y="0.0" width="56.5" height="22.5"/>
+                                        <color key="tintColor" name="MainColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="芝芝" image="square" catalog="system">
+                                            <color key="titleColor" name="MainColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DOT-W2-L7U"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7G-In-PrH">
+                                        <rect key="frame" x="107" y="0.0" width="56.5" height="22.5"/>
+                                        <color key="tintColor" name="MainColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="布蕾" image="square" catalog="system">
+                                            <color key="titleColor" name="MainColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Vha-VG-2tZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfj-6s-ffw">
+                                        <rect key="frame" x="173.5" y="0.0" width="75.5" height="22.5"/>
+                                        <color key="tintColor" name="MainColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="冰淇淋" image="square" catalog="system">
+                                            <color key="titleColor" name="MainColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onFlavor:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MtP-sY-zsu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="170" id="y58-9l-eRH"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZjO-a9-jgW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="CrR-ej-mhj"/>
+                    <constraint firstItem="ZjO-a9-jgW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="H9i-1f-kKE"/>
+                    <constraint firstAttribute="bottom" secondItem="ZjO-a9-jgW" secondAttribute="bottom" constant="15" id="puK-Uc-MYI"/>
+                    <constraint firstAttribute="trailing" secondItem="ZjO-a9-jgW" secondAttribute="trailing" constant="20" id="qqR-TX-4cI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="SecondColor"/>
+            <connections>
+                <outletCollection property="flavorButtons" destination="U9B-po-HSN" collectionClass="NSMutableArray" id="xVI-9P-mYf"/>
+                <outletCollection property="flavorButtons" destination="E6R-DP-CQi" collectionClass="NSMutableArray" id="p4j-uI-I4e"/>
+                <outletCollection property="flavorButtons" destination="98o-q8-avT" collectionClass="NSMutableArray" id="IGm-x7-8at"/>
+                <outletCollection property="flavorButtons" destination="N25-Du-55s" collectionClass="NSMutableArray" id="fVZ-Vi-pOJ"/>
+                <outletCollection property="flavorButtons" destination="jIH-gL-6Bk" collectionClass="NSMutableArray" id="sf6-FU-hyM"/>
+                <outletCollection property="flavorButtons" destination="qSS-dv-YOC" collectionClass="NSMutableArray" id="YKG-lV-Ce0"/>
+                <outletCollection property="flavorButtons" destination="7SG-WY-4FG" collectionClass="NSMutableArray" id="301-K9-83f"/>
+                <outletCollection property="flavorButtons" destination="FCe-pk-VDP" collectionClass="NSMutableArray" id="889-V1-FCX"/>
+                <outletCollection property="flavorButtons" destination="9Ws-rQ-Ydk" collectionClass="NSMutableArray" id="TlL-5k-GfM"/>
+                <outletCollection property="flavorButtons" destination="uTH-jp-eaM" collectionClass="NSMutableArray" id="SCF-eL-MIf"/>
+                <outletCollection property="flavorButtons" destination="8Jd-Tw-CTO" collectionClass="NSMutableArray" id="C45-ZM-tgS"/>
+                <outletCollection property="flavorButtons" destination="Z7G-In-PrH" collectionClass="NSMutableArray" id="FhG-to-0Kg"/>
+                <outletCollection property="flavorButtons" destination="Lfj-6s-ffw" collectionClass="NSMutableArray" id="NcJ-8R-6vd"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="146.98660714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="square" catalog="system" width="128" height="114"/>
+        <namedColor name="MainColor">
+            <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
